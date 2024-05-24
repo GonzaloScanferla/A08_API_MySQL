@@ -15,10 +15,20 @@ const selectAll = () => {
  * @param {number} autor_id - El ID del autor a buscar.
  * @returns {Promise<Object[]>} - Una promesa que resuelve con el autor correspondiente al ID.
  */
-const selectById = (autor_id) => {
-  return db.query("select * from autores where id = ?", [autor_id]);
+const selectById = (id) => {
+  return db.query("select * from autores where id = ?", [id]);
 };
 
+/**
+ * Selecciona un autor por su email de la base de datos.
+ * 
+ * @function selectByEmail
+ * @param {number} email - El EMAIL del autor a buscar.
+ * @returns {Promise<Object[]>} - Una promesa que resuelve con el autor correspondiente al EMAIL.
+ */
+const selectByEmail = (email) => {
+  return db.query("select * from autores where email = ?", [email]);
+};
 
 /**
  * Inserta un nuevo autor en la base de datos.
@@ -71,6 +81,7 @@ const deleteById = (autor_id) => {
 module.exports = {
   selectAll,
   selectById,
+  selectByEmail,
   insertNew,
   updateById,
   deleteById,

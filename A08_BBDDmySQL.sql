@@ -38,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `A08_Blog`.`posts` (
   `titulo` VARCHAR(255) NOT NULL,
   `descripcion` TEXT NULL,
   `fecha_creacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `categoria` SET('ocio', 'viajes', 'deporte', 'actualidad') NULL,
-  `autores_id` INT UNSIGNED NOT NULL,
+  `categoria` SET('ocio', 'viajes', 'deporte', 'actualidad','libros') NULL,
+  `autores_id` INT UNSIGNED NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_posts_autores_idx` (`autores_id` ASC) VISIBLE,
   CONSTRAINT `fk_posts_autores`
     FOREIGN KEY (`autores_id`)
     REFERENCES `A08_Blog`.`autores` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE) 
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
