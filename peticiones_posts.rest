@@ -1,0 +1,32 @@
+@PORT = 3666
+@HOST = http://localhost:{{PORT}}
+
+### Get All posts
+GET {{HOST}}/api/posts
+
+### Get post by Id
+GET {{HOST}}/api/posts/45
+
+### Create post
+POST {{HOST}}/api/posts
+Content-Type: application/json
+
+{
+  "titulo": "El Don Quijote",
+  "descripcion" : "Un post un poco larguito que se me ha ido de las manos",
+  "categoria" : "ocio",
+  "autor_id" : "20"
+  }
+
+### Update post
+PUT {{HOST}}/api/posts/20
+Content-Type: application/json
+
+{
+  "nombre": "Miguel de Cervantes Saavedra2",
+  "email" : "miki_1616@paradisemail.com",
+  "imagen" : "https://i.pinimg.com/originals/69/87/1f/69871f48dc24be3c8d304e023e6731d2.jpg"
+}
+
+### Delete post by Id
+DELETE {{HOST}}/api/posts/22

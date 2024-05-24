@@ -1,0 +1,31 @@
+@PORT = 3666
+@HOST = http://localhost:{{PORT}}
+
+### Get All Autors
+GET {{HOST}}/api/autores
+
+### Get Autor by Id
+GET {{HOST}}/api/autores/75
+
+### Create Autor
+POST {{HOST}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Miguel de Cervantes Saavedra",
+  "email" : "miki_1547@pigeonmail.com",
+  "imagen" : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_J%C3%A1uregui.jpg/800px-Cervantes_J%C3%A1uregui.jpg"
+  }
+
+### Update Autor
+PUT {{HOST}}/api/autores/20
+Content-Type: application/json
+
+{
+  "nombre": "Miguel de Cervantes Saavedra2",
+  "email" : "miki_1616@paradisemail.com",
+  "imagen" : "https://i.pinimg.com/originals/69/87/1f/69871f48dc24be3c8d304e023e6731d2.jpg"
+}
+
+### Delete Autor by Id
+DELETE {{HOST}}/api/autores/22
